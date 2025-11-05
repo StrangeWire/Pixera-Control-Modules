@@ -1,0 +1,68 @@
+{
+ "api": [
+  {
+   "body": "-- Get selected timelines (returns a table)\r\nlocal selectedTimelines = Pixera.Timelines.getTimelinesSelected()\r\n\r\n-- Ensure at least one timeline is selected\r\nif #selectedTimelines == 0 then\r\n    pixc.log(\"No selected timelines found!\")\r\n    return\r\nend\r\n\r\n-- Extract the first selected timeline\r\nlocal timeline = selectedTimelines[1]\r\n\r\n-- Get the timeline name\r\nlocal timelineName = timeline.getName()\r\n\r\n-- Get the timeline FPS\r\nlocal fps = timeline.getFps()\r\n\r\n-- Get the current time of the selected timeline\r\nlocal currentTime = timeline.getCurrentTime()\r\n\r\n-- Add 1 second worth of frames to currentTime\r\nlocal newTime = currentTime + fps\r\n\r\n-- Log everything before setting new time\r\npixc.log(\"Selected Timeline Name: \" .. timelineName)\r\npixc.log(\"Current Time (Frames): \" .. tostring(currentTime))\r\npixc.log(\"New Time After Adding 1 Second (Frames): \" .. tostring(newTime))\r\n\r\n-- Apply the new time using correct dot notation\r\ntimeline.setCurrentTime(newTime)\r\n\r\n-- Log final state\r\npixc.log(\"Timeline '\" .. timelineName .. \"' has been moved to frame: \" .. tostring(timeline.getCurrentTime()))\r\n\r\n",
+   "kind": "func",
+   "name": "forward1Second",
+   "path": "CustomHotkeys.forward1Second"
+  },
+  {
+   "body": "-- Get selected timelines (returns a table)\r\nlocal selectedTimelines = Pixera.Timelines.getTimelinesSelected()\r\n\r\n-- Ensure at least one timeline is selected\r\nif #selectedTimelines == 0 then\r\n    pixc.log(\"No selected timelines found!\")\r\n    return\r\nend\r\n\r\n-- Extract the first selected timeline\r\nlocal timeline = selectedTimelines[1]\r\n\r\n-- Get the timeline name\r\nlocal timelineName = timeline.getName()\r\n\r\n-- Get the timeline FPS\r\nlocal fps = timeline.getFps()\r\n\r\n-- Get the current time of the selected timeline\r\nlocal currentTime = timeline.getCurrentTime()\r\n\r\n-- Add 1 second worth of frames to currentTime\r\nlocal newTime = currentTime - fps\r\n\r\n-- Log everything before setting new time\r\npixc.log(\"Selected Timeline Name: \" .. timelineName)\r\npixc.log(\"Current Time (Frames): \" .. tostring(currentTime))\r\npixc.log(\"New Time After Adding 1 Second (Frames): \" .. tostring(newTime))\r\n\r\n-- Apply the new time using correct dot notation\r\ntimeline.setCurrentTime(newTime)\r\n\r\n-- Log final state\r\npixc.log(\"Timeline '\" .. timelineName .. \"' has been moved to frame: \" .. tostring(timeline.getCurrentTime()))",
+   "kind": "func",
+   "name": "back1Second",
+   "path": "CustomHotkeys.back1Second"
+  }
+ ],
+ "auxPath": "CustomHotkeys",
+ "canHaveExternalConnections": false,
+ "cjv": {
+  "h": 200.0,
+  "page": "Page 1",
+  "w": 200.0,
+  "x": 325.0,
+  "y": 177.0
+ },
+ "definedExternally": false,
+ "hasExternalConnection": 0,
+ "hostInfo": {
+  "systemType": ""
+ },
+ "libraryExportPath": "C:/ProgramData/AV Stumpfl/Pixera/control_library_user/CustomHotkeys",
+ "license": "1GNTlyr7sewU1l3S6nhV4gmZNZJJqCRDDtrcUomGcbOXghZUFqSWdaqfyMcMvrE80mNbH+EjjG2VSYW/0HDtV3GTmy0JkzdXt4K8VF/sQfir2a02Gc/g3KWY4nLF6BvSdyzbIGBWptZneiGcISJmaA==",
+ "name": "CustomHotkeys",
+ "properties": [
+  {
+   "cont": "true",
+   "name": "Auto Init",
+   "typeHint": "bool"
+  },
+  {
+   "cont": "Amanda Facemire",
+   "name": "Author",
+   "readOnly": true,
+   "typeHint": "string"
+  },
+  {
+   "cont": "",
+   "imageBase64": "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",
+   "name": "StrangeWire Logo",
+   "readOnly": true,
+   "showName": false,
+   "typeHint": "image"
+  },
+  {
+   "cont": "www.strangewire.one",
+   "name": "URL",
+   "readOnly": true,
+   "typeHint": "string"
+  },
+  {
+   "cont": "v1",
+   "name": "Version",
+   "readOnly": true,
+   "typeHint": "string"
+  }
+ ],
+ "separateCode": false,
+ "uiUrl": ""
+}
